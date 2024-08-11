@@ -1,0 +1,3 @@
+FLASK_APP=support.py
+FLASK_DEBUG=1
+SECRET_KEY=HloZdSIAeR
