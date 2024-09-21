@@ -1,4 +1,6 @@
-<html lang="en">
+{% import 'macros/login_form.html' as wtf %}
+
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,22 +16,9 @@
 <body>
     <div class="d-flex justify-content-center align-items-center login-field">
         <div class="login-container">
-            <h2>Login</h2>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Remember me</label>
-                </div>
-                <button type="submit" class="submit-btn">Login</button>
-            </form>
+            <img src="{{ url_for('static', filename='images/logo.webp') }}" class="mx-auto" height="56px" width="56px" alt="Website logo">
+            <h2>{{ _('Login') }}</h2>
+            {{ wtf.quick_form(form) }}
         </div>
     </div>
 </body>
