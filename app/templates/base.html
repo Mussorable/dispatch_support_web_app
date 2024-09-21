@@ -28,8 +28,12 @@
                     </ul>
                 </div>
                 <ul class="nav mb-md-0 justify-content-center">
-                    <li><a href="#" class="btn btn-outline-light me-2">Register</a></li>
-                    <li><a href="{{ url_for('main.login') }}" class="btn btn-warning">Log in</a></li>
+                    {% if current_user.is_anonymous %}
+                        <li><a href="{{ url_for('main.register') }}" class="btn btn-outline-light me-2">{{ _('Register') }}</a></li>
+                        <li><a href="{{ url_for('main.login') }}" class="btn btn-warning">{{ _('Log In') }}</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('main.login') }}" class="btn btn-warning">{{ _('Logout') }}</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -1,11 +1,13 @@
 from flask import Flask, request
 from flask_babel import Babel
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_assets import Bundle, Environment
 
 from config import Config
 
+login = LoginManager()
 babel = Babel()
 db = SQLAlchemy()
 migrate = Migrate()
@@ -18,6 +20,9 @@ def create_app(config_class=Config):
 
     def get_locale():
         return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+    login.init_app(app)
+    login.login_view = 'main.login'
 
     assets.init_app(app)
     babel.init_app(app)

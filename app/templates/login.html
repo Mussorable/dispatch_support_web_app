@@ -19,6 +19,7 @@
             <img src="{{ url_for('static', filename='images/logo.webp') }}" class="mx-auto" height="56px" width="56px" alt="Website logo">
             <h2>{{ _('Login') }}</h2>
             {{ wtf.quick_form(form) }}
+            <a href="{{ url_for('main.register') }}" class="registration-button">Register</a>
         </div>
     </div>
 </body>
