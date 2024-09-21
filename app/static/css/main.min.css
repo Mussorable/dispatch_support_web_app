@@ -10,9 +10,6 @@ header {
     text-transform: uppercase;
     font-size: 14px; }
 
-html > * {
-  outline: 2px solid green; }
-
 .screen-window {
   position: relative; }
   .screen-window .screen-wrapper {
@@ -49,3 +46,48 @@ html > * {
     .map-wrapper #map > div > div {
       padding-bottom: 0 !important;
       height: 100% !important; }
+
+.login-field {
+  height: 100%;
+  background: #d5d5d5; }
+  .login-field .login-container {
+    background-color: #fff;
+    padding: 20px;
+    width: 420px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; }
+    .login-field .login-container h2 {
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600; }
+    .login-field .login-container form .form-group {
+      margin-bottom: 15px; }
+      .login-field .login-container form .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        margin-left: 10px;
+        font-weight: 600; }
+      .login-field .login-container form .form-group input[type=text],
+      .login-field .login-container form .form-group input[type=password] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px; }
+      .login-field .login-container form .form-group.remember-me {
+        display: flex;
+        align-items: center; }
+    .login-field .login-container form .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #f84f1c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all .3s; }
+      .login-field .login-container form .submit-btn:hover {
+        background-color: #ff603d; }

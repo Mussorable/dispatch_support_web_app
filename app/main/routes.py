@@ -15,3 +15,12 @@ def index():
         website_title=current_app.config['WEBSITE_TITLE'],
         map=interactive_map,
     )
+
+
+@bp.route('/login')
+def login():
+    return render_template(
+        'login.html',
+        title='Log In',
+        website_title=current_app.config['WEBSITE_TITLE'],
+    )
