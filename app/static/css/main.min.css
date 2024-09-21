@@ -1,0 +1,51 @@
+html * {
+  -webkit-font-smoothing: antialiased; }
+
+header {
+  width: 100%;
+  z-index: 2;
+  background-color: #333; }
+  header .nav .nav-link {
+    transition: all .3s;
+    text-transform: uppercase;
+    font-size: 14px; }
+
+html > * {
+  outline: 2px solid green; }
+
+.screen-window {
+  position: relative; }
+  .screen-window .screen-wrapper {
+    height: calc(100vh - 64px); }
+    .screen-window .screen-wrapper .side-panel {
+      height: 100%;
+      width: 15%;
+      overflow: hidden;
+      background-color: red;
+      border-right: 2px solid #333; }
+  .screen-window .main-content-window {
+    width: 85%;
+    height: 100%; }
+    .screen-window .main-content-window .planning-wrapper {
+      height: 30%;
+      background-color: green;
+      border-bottom: 3px solid #333; }
+      .screen-window .main-content-window .planning-wrapper .sheet-wrapper {
+        border-right: 2px solid #333;
+        width: 65%; }
+      .screen-window .main-content-window .planning-wrapper .maintenance-wrapper {
+        width: 35%; }
+    .screen-window .main-content-window .map-wrapper {
+      height: 70%; }
+      .screen-window .main-content-window .map-wrapper .column {
+        padding: 0;
+        height: 100%; }
+
+.map-wrapper #map {
+  width: 100%;
+  height: 100%; }
+  .map-wrapper #map > div {
+    height: 100%; }
+    .map-wrapper #map > div > div {
+      padding-bottom: 0 !important;
+      height: 100% !important; }

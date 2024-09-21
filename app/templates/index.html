@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>sdsada</h1>
+    <div class="container-fluid screen-window">
+        <div class="row screen-wrapper">
+            <div class="col-lg-4 side-panel"></div>
+            <div class="col-lg-8 main-content-window">
+                <div class="row planning-wrapper">
+                    <div class="col-lg-8 sheet-wrapper">
+{#                        <div class="sheet-wrapper"></div>#}
+                    </div>
+                    <div class="col-lg-4 maintenance-wrapper">
+{#                        <div class="maintenance-wrapper"></div>#}
+                    </div>
+                </div>
+                <div class="row map-wrapper">
+                    <div class="col-lg-12 column">
+                        {% if map %}
+                            <div id="map">
+                                {{ map|safe }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
