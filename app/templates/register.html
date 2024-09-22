@@ -1,5 +1,7 @@
-{% extends 'base.html' %}
+{% import 'macros/login_form.html' as wtf %}
+{% extends 'registration_base.html' %}
 
 {% block content %}
-    <h1>register</h1>
+    <h2>{{ _('Registration') }}</h2>
+    {{ wtf.quick_form(form) }}
 {% endblock %}
