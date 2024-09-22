@@ -8,8 +8,30 @@
       height: 100%;
       width: 15%;
       overflow: hidden;
-      background-color: red;
       border-right: 2px solid #333;
+
+      .user-header {
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+
+        .user-main-information {
+          margin-top: 0.5rem;
+          padding: 0 0 0 5px;
+
+          .user-name {
+            font-size: 16px;
+          }
+
+          .user-email {
+            font-size: 12px;
+          }
+
+          .user-name,
+          .user-email {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
   }
 

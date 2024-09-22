@@ -7,7 +7,6 @@ header {
   background-color: #333; }
   header .nav .nav-link {
     transition: all .3s;
-    text-transform: uppercase;
     font-size: 14px; }
 
 .screen-window {
@@ -18,8 +17,20 @@ header {
       height: 100%;
       width: 15%;
       overflow: hidden;
-      background-color: red;
       border-right: 2px solid #333; }
+      .screen-window .screen-wrapper .side-panel .user-header {
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px; }
+        .screen-window .screen-wrapper .side-panel .user-header .user-main-information {
+          margin-top: 0.5rem;
+          padding: 0 0 0 5px; }
+          .screen-window .screen-wrapper .side-panel .user-header .user-main-information .user-name {
+            font-size: 16px; }
+          .screen-window .screen-wrapper .side-panel .user-header .user-main-information .user-email {
+            font-size: 12px; }
+          .screen-window .screen-wrapper .side-panel .user-header .user-main-information .user-name,
+          .screen-window .screen-wrapper .side-panel .user-header .user-main-information .user-email {
+            margin-bottom: 0; }
   .screen-window .main-content-window {
     width: 85%;
     height: 100%; }

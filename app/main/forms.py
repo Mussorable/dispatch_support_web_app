@@ -31,3 +31,13 @@ class RegistrationForm(FlaskForm):
         user = db.session.scalar(sa.select(User).where(User.email == email.data))
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+
+class TruckForm(FlaskForm):
+    truck_number = StringField('Truck Number', validators=[DataRequired()])
+    submit = SubmitField('Truck')
+
+
+class TrailerForm(FlaskForm):
+    trailer_number = StringField('Trailer Number', validators=[DataRequired()])
+    submit = SubmitField('Trailer')

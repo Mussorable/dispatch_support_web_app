@@ -8,7 +8,7 @@ import sqlalchemy as sa
 from app import db
 from app.main import bp
 from app.logic.map import generate_map
-from app.main.forms import LoginForm, RegistrationForm
+from app.main.forms import LoginForm, RegistrationForm, TruckForm, TrailerForm
 from app.models import User
 
 
@@ -26,6 +26,7 @@ def index():
     )
 
 
+# Authentication endpoints
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -76,6 +77,31 @@ def register():
     return render_template(
         'register.html',
         title='Register',
+        website_title=current_app.config['WEBSITE_TITLE'],
+        form=form
+    )
+
+
+# Navigation endpoints
+@bp.route('/trucks', methods=['GET', 'POST'])
+def trucks():
+    form = TruckForm()
+
+    return render_template(
+        'trucks.html',
+        title='Trucks',
+        website_title=current_app.config['WEBSITE_TITLE'],
+        form=form
+    )
+
+
+@bp.route('/trailers', methods=['GET', 'POST'])
+def trailers():
+    form = TrailerForm()
+
+    return render_template(
+        'trailers.html',
+        title='Trailers',
         website_title=current_app.config['WEBSITE_TITLE'],
         form=form
     )

@@ -3,7 +3,14 @@
 {% block content %}
     <div class="container-fluid screen-window">
         <div class="row screen-wrapper">
-            <div class="col-lg-4 side-panel"></div>
+            <div class="col-lg-4 side-panel">
+                <div class="row user-header">
+                    <div class="user-main-information">
+                        <h4 class="user-name">{{ current_user.username }}</h4>
+                        <p class="user-email">{{ current_user.email }}</p>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-8 main-content-window">
                 <div class="row planning-wrapper">
                     <div class="col-lg-8 sheet-wrapper">

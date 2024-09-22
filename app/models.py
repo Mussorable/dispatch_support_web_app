@@ -30,3 +30,28 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+
+class Truck(db.Model):
+    __tablename__ = 'trucks'
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    truck_number: so.Mapped[str] = so.mapped_column(sa.String(9), index=True, unique=True)
+
+    trailer: so.Mapped[Optional['Trailer']] = so.relationship('Trailer', back_populates='truck', uselist=False)
+
+    def __repr__(self):
+        return f'Truck {self.truck_number}'
+
+
+class Trailer(db.Model):
+    __tablename__ = 'trailers'
+
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    trailer_number: so.Mapped[str] = so.mapped_column(sa.String(9), index=True, unique=True)
+    truck_id: so.Mapped[Optional[int]] = so.mapped_column(sa.Integer, sa.ForeignKey('trucks.id', ondelete='SET NULL'))
+
+    truck: so.Mapped[Optional[Truck]] = so.relationship('Truck', back_populates='trailer', uselist=False)
+
+    def __repr__(self):
+        return f'Trailer {self.trailer_number}'
