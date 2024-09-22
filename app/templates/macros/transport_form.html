@@ -1,6 +1,18 @@
 {% macro form_field(field, autofocus, position_on_page, autocomplete='on') %}
     {% if field.type == "SelectField" %}
+        <div class="input-block mt-3">
+            {{ field.label(class="font-weight-bold") }}
+            {{ field(class="form-control", autofocus=autofocus, autocomplete=autocomplete) }}
+        </div>
+    {% elif field.type == "SubmitField" %}
+        <div class="input-block mt-3">
+            {{ field(class="btn btn-primary") }}
+        </div>
     {% else %}
+        <div class="input-block mt-3">
+            {{ field.label(class="font-weight-bold") }}
+            {{ field(class="form-control", autofocus=autofocus, autocomplete=autocomplete) }}
+        </div>
     {% endif %}
 {% endmacro %}
 

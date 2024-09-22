@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from wtforms.fields.choices import SelectField
 from wtforms.fields.simple import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 
@@ -35,9 +36,17 @@ class RegistrationForm(FlaskForm):
 
 class TruckForm(FlaskForm):
     truck_number = StringField('Truck Number', validators=[DataRequired()])
+    trailer_number = SelectField(
+        'Trailer Number',
+        choices=[('', 'None (Select)')]
+    )
     submit = SubmitField('Truck')
 
 
 class TrailerForm(FlaskForm):
     trailer_number = StringField('Trailer Number', validators=[DataRequired()])
+    truck_number = SelectField(
+        'Truck Number',
+        choices=[('', 'None (Select)')]
+    )
     submit = SubmitField('Trailer')

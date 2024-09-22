@@ -22,6 +22,8 @@ class User(UserMixin, db.Model):
     email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True, unique=True)
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
 
+    trucks: so.Mapped[Optional['Truck']] = so.relationship('Truck', backref='user')
+
     def set_password(self, password: str):
         self.password_hash = generate_password_hash(password)
 
@@ -37,11 +39,12 @@ class Truck(db.Model):
 
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     truck_number: so.Mapped[str] = so.mapped_column(sa.String(9), index=True, unique=True)
+    user_id: so.Mapped[Optional[int]] = so.mapped_column(sa.Integer, sa.ForeignKey('users.id'))
 
     trailer: so.Mapped[Optional['Trailer']] = so.relationship('Trailer', back_populates='truck', uselist=False)
 
     def __repr__(self):
-        return f'Truck {self.truck_number}'
+        return f'Truck {self.truck_number} | Trailer {self.trailer.trailer_number}'
 
 
 class Trailer(db.Model):
