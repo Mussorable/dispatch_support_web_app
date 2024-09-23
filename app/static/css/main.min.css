@@ -1,3 +1,16 @@
+.ftp-system-container {
+  margin-top: .5rem; }
+  .ftp-system-container .tree .tree-description {
+    display: flex;
+    align-items: center;
+    gap: 3px; }
+    .ftp-system-container .tree .tree-description .action-button .action-unfold {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 50%; }
+    .ftp-system-container .tree .tree-description .item-name {
+      font-size: 14px;
+      line-height: 1; }
+
 html * {
   -webkit-font-smoothing: antialiased; }
 

@@ -33,6 +33,19 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
+    def to_dict(self, include_email=False):
+        data = {
+            'id': self.id,
+            'username': self.username,
+
+            '_links': {
+
+            }
+        }
+        if include_email:
+            data['email'] = self.email
+        return data
+
 
 class Truck(db.Model):
     __tablename__ = 'trucks'
