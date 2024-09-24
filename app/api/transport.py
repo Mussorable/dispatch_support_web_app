@@ -1,19 +1,20 @@
+from flask import jsonify
+
+from app import db
 from app.api import bp
+from app.models import Transport
 
 
-# All available transport(trucks, trailers, etc.)
-@bp.route('/transport', methods=['GET'])
-def get_transport():
-    pass
-
-
-# All available transport with selected type
-@bp.route('/transport/<str:transport_type>', methods=["GET"])
-def get_transport_selected_type(transport_type):
-    pass
+# List of transport with selected type
+@bp.route('/<transport_type>', methods=['GET'])
+def get_transport(transport_type):
+    vehicle_class = Transport.get_transport_type(transport_type)
+    vehicle_list = vehicle_class.query.all()
+    return jsonify([vehicle.to_dict() for vehicle in vehicle_list])
 
 
 # Information about specific vehicle
-@bp.route('/transport/<str:transport_type>/<specific_vehicle>', methods=["GET"])
-def get_transport_selected_type(transport_type, current_vehicle):
-    pass
+@bp.route('/<transport_type>/<int:id>', methods=["GET"])
+def get_transport_specific_vehicle(transport_type, id):
+    vehicle_class = Transport.get_transport_type(transport_type)
+    return db.get_or_404(vehicle_class, id)
