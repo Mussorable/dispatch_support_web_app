@@ -64,6 +64,16 @@ class Transport(db.Model):
         else:
             raise BadRequest('Invalid transport type. Available types: trucks, trailers')
 
+    @staticmethod
+    def get_lists_of_vehicles():
+        trucks = db.session.query(Truck).all()
+        trailers = db.session.query(Trailer).all()
+
+        truck_list = [truck.to_dict() for truck in trucks]
+        trailer_list = [trailer.to_dict() for trailer in trailers]
+
+        return truck_list, trailer_list
+
     def to_dict(self, include_email=False):
         raise NotImplementedError('Subclasses should implement to_dict method')
 

@@ -18,3 +18,10 @@ def get_transport(transport_type):
 def get_transport_specific_vehicle(transport_type, id):
     vehicle_class = Transport.get_transport_type(transport_type)
     return db.get_or_404(vehicle_class, id)
+
+
+# Lists of all vehicles in system
+@bp.route('/vehicles', methods=['GET'])
+def get_vehicles():
+    truck_list, trailer_list = Transport.get_lists_of_vehicles()
+    return jsonify({'trucks': truck_list, 'trailers': trailer_list})
