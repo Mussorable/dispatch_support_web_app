@@ -10,24 +10,7 @@
                         <p class="user-email">{{ current_user.email }}</p>
                     </div>
                 </div>
-                <div class="row ftp-system-container">
-                    <div class="tree">
-                        <div class="tree-description">
-                            <img class="action-unfold" src="{{ url_for('static', filename='svg/plus.svg') }}" height="12px" width="12px" alt="Unfoldering button">
-                            <img class="folder-icon" src="{{ url_for('static', filename='svg/folder.svg') }}" height="12px" width="12px" alt="Folder icon">
-                            <span class="item-name">Trucks</span>
-                        </div>
-                    </div>
-                    <div class="tree">
-                        <div class="tree-description">
-                            <div class="action-button">
-                                <img class="action-unfold" src="{{ url_for('static', filename='svg/plus.svg') }}" height="12px" width="12px" alt="Unfoldering button">
-                            </div>
-                            <img class="folder-icon" src="{{ url_for('static', filename='svg/folder.svg') }}" height="12px" width="12px" alt="Folder icon">
-                            <span class="item-name">Trailers</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="row tree-container" id="tree-container"></div>
             </div>
             <div class="col-lg-8 main-content-window">
                 <div class="row planning-wrapper">

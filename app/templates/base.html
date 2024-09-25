@@ -42,8 +42,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-{#    {% assets "js_all" %}#}
-{#        <script type="module" src="{{ ASSET_URL }}"></script>#}
-{#    {% endassets %}#}
+    <script type="text/javascript">
+        const plusIconPath = "{{ url_for('static', filename='svg/plus.svg') }}";
+        const minusIconPath = "{{ url_for('static', filename='svg/minus.svg') }}"
+        const folderIconPath = "{{ url_for('static', filename='svg/folder.svg') }}";
+        const folderOpenedIconPath = "{{ url_for('static', filename='svg/open-folder.svg') }}";
+    </script>
+    {% assets "js_all" %}
+        <script type="module" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 </body>
 </html>

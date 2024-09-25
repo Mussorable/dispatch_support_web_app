@@ -1,4 +1,4 @@
-.ftp-system-container {
+.tree-container {
   margin-top: .5rem;
 
   .tree {
@@ -8,12 +8,15 @@
       align-items: center;
       gap: 3px;
 
-      .action-button {
+      img {
+        width: 12px;
+        height: 12px;
+      }
 
-        .action-unfold {
-          box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-          border-radius: 50%;
-        }
+      .action-unfold {
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        border-radius: 50%;
+
       }
 
       .item-name {
