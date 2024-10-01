@@ -10,6 +10,7 @@ from app.main import bp
 from app.logic.map import generate_map
 from app.main.forms import LoginForm, RegistrationForm, TruckForm, TrailerForm
 from app.models import User, Trailer, Truck
+from app.producer import create_producer
 
 
 @bp.route('/')
@@ -165,3 +166,15 @@ def transport_add(transport_type):
         website_title=current_app.config['WEBSITE_TITLE'],
         form=form,
     )
+
+
+@bp.route('/procedure', methods=['GET', 'POST'])
+async def produce_message():
+    producer = create_producer()
+
+    try:
+        await producer.send_and_wait('test-consumers', key=b'key', value=b'Hello, kafka!', timeout=2)
+    finally:
+        await producer.stop()
+
+    return 'Message Sent!'

@@ -1,3 +1,5 @@
+import asyncio
+
 from flask import Flask, request
 from flask_babel import Babel
 from flask_login import LoginManager
