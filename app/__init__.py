@@ -1,11 +1,15 @@
+import asyncio
+
 from flask import Flask, request
 from flask_babel import Babel
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_assets import Bundle, Environment
 
 from config import Config
 
+login = LoginManager()
 babel = Babel()
 db = SQLAlchemy()
 migrate = Migrate()
@@ -19,6 +23,9 @@ def create_app(config_class=Config):
     def get_locale():
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+    login.init_app(app)
+    login.login_view = 'main.login'
+
     assets.init_app(app)
     babel.init_app(app)
     db.init_app(app)
@@ -26,6 +33,9 @@ def create_app(config_class=Config):
 
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
+
+    from app.api import bp as api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')
 
     with app.app_context():
         @app.before_request

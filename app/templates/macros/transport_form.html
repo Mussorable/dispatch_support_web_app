@@ -1,0 +1,36 @@
+{% macro form_field(field, autofocus, position_on_page, autocomplete='on') %}
+    {% if field.type == "SelectField" %}
+        <div class="input-block mt-3">
+            {{ field.label(class="font-weight-bold") }}
+            {{ field(class="form-control", autofocus=autofocus, autocomplete=autocomplete) }}
+        </div>
+    {% elif field.type == "SubmitField" %}
+        <div class="input-block mt-3">
+            {{ field(class="btn btn-primary") }}
+        </div>
+    {% else %}
+        <div class="input-block mt-3">
+            {{ field.label(class="font-weight-bold") }}
+            {{ field(class="form-control", autofocus=autofocus, autocomplete=autocomplete) }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro quick_form(form, action="", method="post", id="", novalidate=False, autocomplete="on", position_on_page="") %}
+    <form
+        {% if action != None %} action="{{ action }}" {% endif %}
+        {% if method %} method="{{ method }}" {% endif %}
+        {% if novalidate %} novalidate="{{ novalidate }}" {% endif %}
+        {% if id %} id="{{ id }}" {% endif %}>
+
+        {{ form.hidden_tag() }}
+
+        {% set ns = namespace(first_field=true) %}
+        {% for field in form %}
+            {% if field.widget.input_type != 'hidden' %}
+                {{ form_field(field, ns.first_field, autocomplete=autocomplete, position_on_page=position_on_page) }}
+                {% set ns.first_field = false %}
+            {% endif %}
+        {% endfor %}
+    </form>
+{% endmacro %}

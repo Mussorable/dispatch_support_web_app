@@ -1,0 +1,13 @@
+<div class="transport-menu-container">
+    <ul class="nav transport-menu mb-md-0 col-12 justify-content-center my-2">
+        <li class="menu-item">
+            <a class="nav-link" href="{{ url_for('main.transport_list', transport_type=transport_type.lower()) }}">{{ transport_type }} List</a>
+        </li>
+        <li class="menu-item">
+            <a class="nav-link" href="{{ url_for('main.transport_add', transport_type=transport_type.lower()) }}">Add {{ transport_type }}</a>
+        </li>
+        <li class="menu-item">
+            <a class="nav-link" href="#">{{ transport_type }} Settings</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,12 @@
+header {
+  width: 100%;
+  z-index: 2;
+  background-color: #333;
+
+  .nav {
+    .nav-link {
+      transition: all .3s;
+      font-size: 14px;
+    }
+  }
+}
